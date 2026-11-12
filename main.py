@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""roblox-up-and-coming-forecast-01 agent v4 (final) — Monte Carlo trajectory forecaster.
+"""roblox-up-and-coming-forecast-01 agent v4.1 — Monte Carlo trajectory forecaster.
 
 Reads /input/history.ndjson + task.json, writes /output/forecast.json.
 Stdlib only, deterministic (fixed seed), no network, no model calls.
@@ -21,11 +21,11 @@ import random
 INPUT_DIR = os.environ.get("MAKEFUN_INPUT_DIR", "/input")
 OUTPUT_DIR = os.environ.get("MAKEFUN_OUTPUT_DIR", "/output")
 
-# ---- tunable parameters (v4 final: v3 + kappa 0.004, sigma 0.20) ----
+# ---- tunable parameters (v4.1: v4 + sigma 0.18, kappa 0.004) ----
 PARAMS = {
     "n_sims": 1000,
     "kappa": 0.004,        # mean-reversion rate per hour
-    "sigma": 0.20,         # hourly latent noise sd
+    "sigma": 0.18,         # hourly latent noise sd
     "p_new": 0.5,          # new games arriving per hour
     "w_vel": 0.0,          # weight on rank-velocity drift
     "b_tt": 0.20,          # latent boost for Top Trending top-20 games
